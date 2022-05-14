@@ -28,7 +28,10 @@ namespace TwoTier_Architecture
             string connectionString = "Server=localhost; database=SoftwareArchitectureCourse; Integrated Secrity=true";
             SqlConnection connection = new SqlConnection(connectionString);
 
-            connection.Open();
+            if(connection.State != ConnectionState.Open)
+                 connection.Open();
+
+
             connection.Close();
         }
     }
